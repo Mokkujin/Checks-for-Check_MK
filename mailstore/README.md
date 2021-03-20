@@ -12,11 +12,11 @@
 
 local single check for checkmk to monitor mailstore with powershell
 
-![Output CheckMk](https://github.com/Mokkujin/checkmk_mailstore_local/blob/main/src/checkmk_output.png)
+![Output CheckMk](https://github.com/Mokkujin/Checks-for-Check_MK/blob/main/mailstore/src/checkmk_output.png)
 
 local multi check for checkmk to monitor mailstore with powershell
 
-![Output Multi CheckMk](https://github.com/Mokkujin/checkmk_mailstore_local/blob/main/src/checkmk_multi.png)
+![Output Multi CheckMk](https://github.com/Mokkujin/Checks-for-Check_MK/blob/main/mailstore/src/checkmk_multi.png)
 
 <a name="requirements"></a>
 ## Requirements
@@ -160,6 +160,6 @@ or use the UI to get the profileID from the job to be monitored go to the gui cl
 
 Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> then you will see a form with an json
 
-![Get ProfileId from Mailstore](https://github.com/Mokkujin/checkmk_mailstore_local/blob/main/src/mailstore_json.png)
+![Get ProfileId from Mailstore](https://github.com/Mokkujin/Checks-for-Check_MK/blob/main/mailstore/src/mailstore_json.png)
 
 Contributor : [@jhochwald](https://github.com/jhochwald)
