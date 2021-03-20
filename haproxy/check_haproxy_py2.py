@@ -3,7 +3,7 @@ import urllib2 as u
 import sys as s
 import ssl, base64
 ####################################################################
-# script from https://github.com/Mokkujin/checkmk-haproxy-localcheck
+# script from https://github.com/Mokkujin/Checks-for-Check_MK
 #
 # @ mokkujin
 ####################################################################

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import requests, urllib3, sys
 ####################################################################
-# script from https://github.com/Mokkujin/checkmk-haproxy-localcheck
+# script from https://github.com/Mokkujin/Checks-for-Check_MK
 #
 # @ mokkujin
 ####################################################################

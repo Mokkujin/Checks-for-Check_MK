@@ -1,5 +1,8 @@
 package main
 
+// Check is from https://github.com/Mokkujin/Checks-for-Check_MK
+// feel free to use ... greetz from mokkujin
+
 import (
 	"crypto/tls"
 	"encoding/json"

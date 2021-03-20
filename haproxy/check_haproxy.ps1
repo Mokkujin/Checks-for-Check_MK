@@ -1,6 +1,6 @@
 #!/usr/bin/env pwsh
 ####################################################################
-# script from https://github.com/Mokkujin/checkmk-haproxy-localcheck
+# script from https://github.com/Mokkujin/Checks-for-Check_MK
 #
 # @ mokkujin
 ####################################################################

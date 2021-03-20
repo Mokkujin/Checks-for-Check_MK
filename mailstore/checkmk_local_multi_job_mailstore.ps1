@@ -19,7 +19,7 @@ Import-Module 'C:\Program Files (x86)\MailStore\MailStore Server\API\MS.PS.Lib.p
 #  API Referenz Mailstore :
 #  https://help.mailstore.com/de/server/Administration_API_-_Function_Reference
 #
-#  check is from https://github.com/Mokkujin/checkmk_mailstore_local
+#  check is from https://github.com/Mokkujin/Checks-for-Check_MK
 #
 #  @mokkujin in 2021
 # 
