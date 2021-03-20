@@ -1,0 +1,9 @@
+{
+  "WIUser" : "USERNAME OF ADMINUSER",
+  "WIPass" : "PASSWORD OF USER",
+  "HAProxyStatusPage" : "SERVER FQDN OR localhost (most localhost)",
+  "MonBackFront" : "bool if false only the server-nodes will be monitored",
+  "HADefMax" : "Default maxcon configured in haproxy.conf",
+  "MWarnAt" : "Warn Level for example 0.85 means 85% of Session Limits"
+  "MCritAt" : "Crit Level for example 0.90 means 90% of Session Limits"
+}

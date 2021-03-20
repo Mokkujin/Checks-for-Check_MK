@@ -1,0 +1,7 @@
+{
+    "Username" : "USERNAME OF ADMINUSER",
+    "Password" : "PASSWORD OF USER",
+    "MailStoreServer" : "SERVER FQDN OR localhost (most localhost)",
+    "Port" : PortToApi,
+    "profileID" : ProfileIDFromWorker
+  }

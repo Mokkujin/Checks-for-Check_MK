@@ -1,0 +1,9 @@
+{
+  "WIUser" : "USERNAME OF ADMINUSER",
+  "WIPass" : "PASSWORD OF USER",
+  "HAProxyStatusPage" : "https://localhost/lbstatistik;csv",
+  "MonBackFront" : false,
+  "HADefMax" : 12000,
+  "MWarnAt" : 0.85,
+  "MCritAt" : 0.90
+}

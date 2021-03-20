@@ -1,0 +1,37 @@
+{
+  "Username" : "ADMINUSER",
+  "Password" : "PASSWORD",
+  "MailStoreServer" : "FQDN or localhost",
+  "Port" : 8463,
+  "useprofilenames" : true,
+  "CheckLicence" : true,
+  "Licence" : 200,
+  "profiles":
+  [
+    {
+      "profileID":1,
+      "name":"Exchange-Journaling",
+      "interval":10
+    },
+    {
+      "profileID":2,
+      "name":"Archiving A",
+      "interval":1680
+    },
+    {
+      "profileID":3,
+      "name":"Archiving B",
+      "interval":1680
+    },
+    {
+      "profileID":4,
+      "name":"Archiving C",
+      "interval":1680
+    },
+    {
+      "profileID":5,
+      "name":"Archiving D",
+      "interval":1680
+    }
+  ]
+}
