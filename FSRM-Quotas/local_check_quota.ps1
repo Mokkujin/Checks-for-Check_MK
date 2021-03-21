@@ -8,9 +8,9 @@
     Check_MK Plugin to monitor Quotas with FSRM Module to replace the old VBS Version 
 .EXAMPLE
     PS C:\> ./local_check_quota.ps1
-    0 FSRM-Abteilung-C - Usage:0 MB/200 MB Share:\\FSSRV01.test.local\Abteilung-C Path:C:\Share\Abt_C
-    0 FSRM-Abteilung-B - Usage:0 MB/100 MB Share:\\FSSRV01.test.local\Abteilung-B Path:C:\Share\Abt_B
-    0 FSRM-Abteilung-A - Usage:0 MB/100 MB Share:\\FSSRV01.test.local\Abteilung-A Path:C:\Share\Abt_A
+    0 FSRM-Abteilung-C - Usage:0 MB/200 MB Share:\\\\FSSRV01.test.local\\Abteilung-C Path:C:\\Share\\Abt_C
+    0 FSRM-Abteilung-B - Usage:0 MB/100 MB Share:\\\\FSSRV01.test.local\\Abteilung-B Path:C:\\Share\\Abt_B
+    0 FSRM-Abteilung-A - Usage:0 MB/100 MB Share:\\\\FSSRV01.test.local\\Abteilung-A Path:C:\\Share\\Abt_A
 
     normaly this Script is located at the local plugin folder from check_mk
 .NOTES
@@ -114,15 +114,17 @@ function script:Test-Quota
     [string]$ShareName = (Get-SmbShare | Where-Object { $_.Path -eq $Path } | Select-Object -ExpandProperty Name)
     [string]$ServerName = ([System.Net.Dns]::GetHostByName(($env:computerName)) | Select-Object -ExpandProperty HostName)
 
+    $PathMessage = ($Path.Replace("\","\\"))
+
     If (-not $ShareName)
     {
         [string]$ShareName = $script:LocalQuotas
         $script:LocalQuotas++
-        [string]$ShareNameFull = ('Path:{0}' -f $Path) 
+        [string]$ShareNameFull = ('Path:{0}' -f $PathMessage) 
     }
     else
     {
-        [string]$ShareNameFull = ('Share:\\{0}\{1} Path:{2}' -f $ServerName, $Sharename, $Path) 
+        [string]$ShareNameFull = ('Share:\\\\{0}\\{1} Path:{2}' -f $ServerName, $Sharename, $PathMessage) 
     }
 
     $UsageInMB = (script:Get-Rounded -Value $Usage)
