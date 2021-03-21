@@ -9,7 +9,7 @@ this is a localcheck the configuration has to be done in the check directly
 3. restart the check_mk_agent
 4. do an service discover in WATO
 
-![Output CheckMk](https://github.com/Mokkujin/Checks-for-Check_MK/blob/main/FSRM-Quota/src/check_mk_show.png)
+![Output CheckMk](https://github.com/Mokkujin/Checks-for-Check_MK/blob/main/FSRM-Quotas/src/check_mk_show.png)
 
 ## installation
 
