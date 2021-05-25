@@ -23,6 +23,12 @@
 [float]$script:WarningAt = 0.85 
 [float]$script:CriticalAt = 0.90
 
+# to get the full fqdn
+[string]$script:ServerName = ([System.Net.Dns]::GetHostByName(($env:computerName)) | Select-Object -ExpandProperty HostName)
+
+# monitor only shares
+[bool]$script:SharesOnly = $true
+
 function script:Get-Rounded
 {
     <#
@@ -112,19 +118,25 @@ function script:Test-Quota
     [int]$Critical = ([math]::ceiling($script:CriticalAt * $Size))
 
     [string]$ShareName = (Get-SmbShare | Where-Object { $_.Path -eq $Path } | Select-Object -ExpandProperty Name)
-    [string]$ServerName = ([System.Net.Dns]::GetHostByName(($env:computerName)) | Select-Object -ExpandProperty HostName)
 
-    $PathMessage = ($Path.Replace("\","\\"))
+    $PathMessage = ($Path.Replace("\", "\\"))
 
-    If (-not $ShareName)
+    If ($ShareName)
     {
-        [string]$ShareName = $script:LocalQuotas
-        $script:LocalQuotas++
-        [string]$ShareNameFull = ('Path:{0}' -f $PathMessage) 
+        [string]$ShareNameFull = ('Share:\\\\{0}\\{1} Path:{2}' -f $script:ServerName, $Sharename, $PathMessage)
     }
-    else
+    else 
     {
-        [string]$ShareNameFull = ('Share:\\\\{0}\\{1} Path:{2}' -f $ServerName, $Sharename, $PathMessage) 
+        If (-not $script:SharesOnly)
+        {
+            [string]$ShareName = ($PathMessage.Replace("\\", "_"))
+            [string]$ShareName = ([string]$ShareName.Replace(":", ""))
+            [string]$ShareNameFull = ('Path:{0}' -f $PathMessage)
+        }
+        else
+        {
+            continue
+        }
     }
 
     $UsageInMB = (script:Get-Rounded -Value $Usage)
@@ -153,7 +165,6 @@ function script:Test-Quota
 
 $AllSharesWithQuotas = (Get-FSRMQuota)
 $CheckMKOutput = New-Object System.Collections.Generic.List[System.Object]
-[int]$script:LocalQuotas = 0
 
 foreach ($Share in $AllSharesWithQuotas)
 {
