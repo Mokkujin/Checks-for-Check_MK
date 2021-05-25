@@ -1,6 +1,6 @@
 # check quota on windows server 2019
 
-this is a localcheck the configuration has to be done in the check directly 
+this is a localcheck the configuration has to be done in the check directly
 
 ## TL;DR
 
@@ -16,7 +16,6 @@ this is a localcheck the configuration has to be done in the check directly
 place the check in **"%ProgramData%\checkmk\agent\local"** if you use check_mk 2.0 and above
 if you use check_mk 1.6 and lower the check has to be copied to **"C:\Program Files (x86)\check_mk\local\"**
 
-
 ## configuration
 
 change the threshold in script direct (line 23/24)
@@ -25,6 +24,8 @@ change the threshold in script direct (line 23/24)
 # Change your Levels here - default is $WarningAt = 0.85 and $CriticalAt = 0.90
 [float]$script:WarningAt = 0.85 
 [float]$script:CriticalAt = 0.90
+# monitor only shares - if it $true local folders without share will be ignored
+[bool]$script:SharesOnly = $true
 ```
 
 ## test script
